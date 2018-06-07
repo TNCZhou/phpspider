@@ -1,0 +1,10 @@
+version: '2'
+services:
+  php-sp:
+    container_name: php-spider
+    image: "registry.cn-hangzhou.aliyuncs.com/tzhou/php7_nginx_mongo_redis:v2"
+    ports:
+      - "8080:80"
+    command: "sh -c \"nginx && php-fpm && redis-server /etc/redis.conf && mongod -f /etc/mongod.conf  && php /data/www/php-spider.php\""
+    volumes: 
+      - D:\www\tzhou:/data/
